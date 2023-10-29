@@ -37,5 +37,9 @@
 			</plugin>
 		</plugins>
 	</build>
+	<properties>
+        <sonar.login>admin</sonar.login>
+        <sonar.password>Anhcutyn@12345678#</sonar.password>
+</properties>
 
 </project>
