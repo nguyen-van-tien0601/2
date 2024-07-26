@@ -22,7 +22,7 @@ pipeline {
                     artifactType: 'JSON',
                     autoCreateProject: true,
                     dependencyTrackApiKey: credentials('dependency-track-api-key'),
-                    dependencyTrackUrl: http://localhost:8080/
+                    dependencyTrackUrl: 'http://localhost:8080/'
                 )
     }
   }
