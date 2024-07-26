@@ -16,18 +16,13 @@ pipeline {
         
         stage('Publish to Dependency Track') {
             steps {
-                withCredentials([string(credentialsId: 'dependency-track-api-key', variable: 'DT_API_KEY')]) {
-                    dependencyTrackPublisher(
-                        projectName: 'dso-demo',
-                        projectVersion: 'dev',
-                        artifact: 'trivy_report.json',
-                        autoCreateProjects: true,
-                        synchronous: true,
-                        dependencyTrackApiKey: DT_API_KEY,  // Sử dụng biến môi trường ở đây
-                        dependencyTrackUrl: 'http://localhost:8080/api/v1/'
-                    )
+            steps {
+                withCredentials([string(credentialsId: 'odt_3XTFKJ3TZSA5B5JRMxI8UZbarZ8B1XsJ', variable: 'API_KEY')]) {
+                    dependencyTrackPublisher artifact: 'trivy_report.json', projectName: 'my-project', projectVersion: 'my-version', synchronous: true, dependencyTrackApiKey: API_KEY, projectProperties: [tags: ['tag1', 'tag2'], swidTagId: 'my swid tag', group: 'my group', parentId: 'parent-uuid']
                 }
             }
         }
     }
 }
+
+    
