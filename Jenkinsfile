@@ -23,8 +23,7 @@ pipeline {
                         projectVersion: 'my-version',
                         synchronous: true,
                         dependencyTrackApiKey: API_KEY,
-                        projectId: 'your-project-id',  // Thay đổi 'your-project-id' thành ID dự án thực tế
-                        autoCreateProjects: false,    // Đặt thành false để chỉ định projectId
+                        autoCreateProjects: true,    // Bật tùy chọn tự động tạo dự án
                         projectProperties: [
                             tags: ['tag1', 'tag2'],
                             swidTagId: 'my swid tag',
