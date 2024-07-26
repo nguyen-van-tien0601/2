@@ -23,13 +23,8 @@ pipeline {
                         projectVersion: 'my-version',
                         synchronous: true,
                         dependencyTrackApiKey: API_KEY,
-                        autoCreateProjects: true,    // Bật tùy chọn tự động tạo dự án
-                        projectProperties: [
-                            tags: ['tag1', 'tag2'],
-                            swidTagId: 'my swid tag',
-                            group: 'my group',
-                            parentId: 'parent-uuid'
-                        ]
+                        autoCreateProjects: true
+                    )
                     )
                 }
             }
