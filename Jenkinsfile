@@ -24,7 +24,7 @@ pipeline {
                         autoCreateProjects: true,
                         synchronous: true,
                         dependencyTrackApiKey: DT_API_KEY,  // Sử dụng biến môi trường ở đây
-                        dependencyTrackUrl: 'http://localhost:8080/'
+                        dependencyTrackUrl: 'http://localhost:8080/api/v1/'
                     )
                 }
             }
