@@ -25,7 +25,7 @@ pipeline {
                         dependencyTrackApiKey: API_KEY,
                         autoCreateProjects: true
                     )
-                    )
+                    
                 }
             }
         }
