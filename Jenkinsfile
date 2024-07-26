@@ -19,7 +19,8 @@ pipeline {
                     projectName: 'dso-demo',
                     projectVersion: 'dev',
                     artifact: 'trivy_report.json',
-                    autoCreateProjects: true, // Sửa từ autoCreateProject thành autoCreateProjects
+                    autoCreateProjects: true,
+                    synchronous: true, // Thêm tham số synchronous với giá trị true
                     dependencyTrackApiKey: credentials('dependency-track-api-key'),
                     dependencyTrackUrl: 'http://localhost:8080/'
                 )
