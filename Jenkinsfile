@@ -16,7 +16,7 @@ pipeline {
         
         stage('Publish to Dependency Track') {
             steps {
-                withCredentials([string(credentialsId: 'odt_3XTFKJ3TZSA5B5JRMxI8UZbarZ8B1XsJ', variable: 'API_KEY')]) {
+                withCredentials([string(credentialsId: 'dependency-track-api-key', variable: 'API_KEY')]) {
                     dependencyTrackPublisher(
                         artifact: 'trivy_report.json',
                         projectName: 'my-project',
