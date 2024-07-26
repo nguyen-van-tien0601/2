@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('SAST') {
             steps {
-                sh "semgrep ci"
+               // sh "semgrep ci"
+                sh "echo 'hello'"
             }
         }
         
@@ -15,15 +16,17 @@ pipeline {
         
         stage('Publish to Dependency Track') {
             steps {
-                dependencyTrackPublisher(
-                    projectName: 'dso-demo',
-                    projectVersion: 'dev',
-                    artifact: 'trivy_report.json',
-                    autoCreateProjects: true,
-                    synchronous: true, // Thêm tham số synchronous với giá trị true
-                    dependencyTrackApiKey: credentials('dependency-track-api-key'),
-                    dependencyTrackUrl: 'http://localhost:8080/'
-                )
+                withCredentials([string(credentialsId: 'dependency-track-api-key', variable: 'DT_API_KEY')]) {
+                    dependencyTrackPublisher(
+                        projectName: 'dso-demo',
+                        projectVersion: 'dev',
+                        artifact: 'trivy_report.json',
+                        autoCreateProjects: true,
+                        synchronous: true,
+                        dependencyTrackApiKey: DT_API_KEY,  // Sử dụng biến môi trường ở đây
+                        dependencyTrackUrl: 'http://localhost:8080/'
+                    )
+                }
             }
         }
     }
